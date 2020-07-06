@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Description>Bitmask compatible with JavaScript big-bit-mask.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Aleksej Solomatin</Authors>
@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\LICENSE" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="../../LICENSE" Pack="true" Visible="false" PackagePath=""/>
   </ItemGroup>
 
 </Project>
