@@ -17,7 +17,6 @@
     <PackageId>BigBitMask.NET</PackageId>
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/ASolomatin/BigBitMask.NET</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/ASolomatin/BigBitMask.NET/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/ASolomatin/BigBitMask.NET</RepositoryUrl>
   </PropertyGroup>
