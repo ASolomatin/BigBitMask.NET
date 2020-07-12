@@ -11,4 +11,4 @@ after_success:
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
   - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
-  - tools/csmacnz.Coveralls --lcov -i ./src/Tests/TestResults/coverage.info --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID  --serviceName travis-ci  --useRelativePaths
+  - tools/csmacnz.Coveralls --lcov -i ./src/Tests/TestResults/coverage.info --repoToken _ --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID  --serviceName travis-ci  --useRelativePaths
