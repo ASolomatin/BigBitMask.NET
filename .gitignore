@@ -434,3 +434,6 @@ $RECYCLE.BIN/
 
 # Coverage
 coverage.json
+
+# Tools
+tools/

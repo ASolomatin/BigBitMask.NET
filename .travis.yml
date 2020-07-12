@@ -3,12 +3,12 @@ mono: none
 dotnet: 3.1.300
 solution: src/BigBitMask.NET.sln
 install:
-  - dotnet tool install --global coveralls.net --version 1.0.0
+  - dotnet tool install coveralls.net --version 1.0.0 --tool-path tools
 script:
   - dotnet restore $TRAVIS_SOLUTION
-  - dotnet test $TRAVIS_SOLUTION
+  - dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov $TRAVIS_SOLUTION
 after_success:
   - REPO_COMMIT_AUTHOR=$(git show -s --pretty=format:"%cn")
   - REPO_COMMIT_AUTHOR_EMAIL=$(git show -s --pretty=format:"%ce")
   - REPO_COMMIT_MESSAGE=$(git show -s --pretty=format:"%s")
-  - csmacnz.Coveralls --lcov -i ./src/Tests/TestResults/coverage.info --repoToken $COVERALLS_REPO_TOKEN --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID  --serviceName travis-ci  --useRelativePaths
+  - tools/csmacnz.Coveralls --lcov -i ./src/Tests/TestResults/coverage.info --commitId $TRAVIS_COMMIT --commitBranch $TRAVIS_BRANCH --commitAuthor "$REPO_COMMIT_AUTHOR" --commitEmail "$REPO_COMMIT_AUTHOR_EMAIL" --commitMessage "$REPO_COMMIT_MESSAGE" --jobId $TRAVIS_JOB_ID  --serviceName travis-ci  --useRelativePaths
