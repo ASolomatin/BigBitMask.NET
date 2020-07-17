@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
-        "Bitmask"
+        "Bitmask",
+        "serializable"
     ],
     "dotnet-test-explorer.testProjectPath": "/src/BigBitMask.NET.sln"
 }
