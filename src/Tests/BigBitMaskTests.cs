@@ -91,6 +91,9 @@ namespace Tests
 
             bitMask[1000] = true;
             Expect(bitMask.BitsCapacity).To.Equal(1002);
+
+            bitMask[2000] = false;
+            Expect(bitMask.BitsCapacity).To.Equal(1002);
         }
     }
 }
