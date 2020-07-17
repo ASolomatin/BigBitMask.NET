@@ -82,5 +82,15 @@ namespace Tests
             bitMask[1000] = false;
             Expect(bitMask.ToString()).To.Equal("CE");
         }
+
+        [Test]
+        public void TestBitCapacityProperty()
+        {
+            var bitMask = new BitMask("CE");
+            Expect(bitMask.BitsCapacity).To.Equal(12);
+
+            bitMask[1000] = true;
+            Expect(bitMask.BitsCapacity).To.Equal(1002);
+        }
     }
 }
