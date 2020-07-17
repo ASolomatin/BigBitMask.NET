@@ -29,6 +29,12 @@ When bits is not enough ...
 
 This library implements a .NET, fully compatible, version of [big-bit-mask](https://github.com/ASolomatin/big-bit-mask) - the bitmask serializable into a base64-like, url-safe string.
 
+## Other platform compatibility
+
+| Platform | Repository | Package |
+|-|-|-|
+| JavaScript / TypeScript | [big-bit-mask](https://github.com/ASolomatin/big-bit-mask) | [NPM](https://www.npmjs.com/package/big-bit-mask) |
+
 ## Install
 ```
 > dotnet add package BigBitMask.NET
@@ -147,7 +153,9 @@ checkboxes.Checkbox8 = true;
 
 Console.WriteLine(checkboxes.ToString());
 ```
+
 output: `gG`
+
 ----------------------------------------
 
 ## License

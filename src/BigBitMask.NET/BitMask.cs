@@ -18,7 +18,7 @@ namespace BigBitMask.NET
             {'w', 0x30}, {'x', 0x31}, {'y', 0x32}, {'z', 0x33}, {'0', 0x34}, {'1', 0x35}, {'2', 0x36}, {'3', 0x37}, {'4', 0x38}, {'5', 0x39}, {'6', 0x3A}, {'7', 0x3B}, {'8', 0x3C}, {'9', 0x3D}, {'-', 0x3E}, {'_', 0x3F},
         };
 
-        private readonly IList<byte> blocks;
+        private readonly List<byte> blocks;
 
         public int BitsCapacity => blocks.Count * 6;
 
@@ -35,6 +35,8 @@ namespace BigBitMask.NET
                     return blockByte;
                 throw new FormatException($@"Unsupported token ""{block}""");
             }).ToList();
+
+            TrimZeros();
         }
 
         public bool this[int bit]
@@ -54,16 +56,33 @@ namespace BigBitMask.NET
                     throw new ArgumentOutOfRangeException(nameof(bit), "bit must be greater or equals to zero");
 
                 var block = bit / 6;
+
+                if (!value && blocks.Count <= block)
+                    return;
+
                 bit %= 6;
 
-                if (blocks.Count <= block)
-                    for (var i = blocks.Count; i <= block; i++)
-                        blocks.Add(0x0);
+                for (var i = blocks.Count; i <= block; i++)
+                    blocks.Add(0x0);
 
                 blocks[block] = (byte)(value ? blocks[block] | 0x1 << bit : blocks[block] & ~(0x1 << bit));
+
+                if(!value && blocks.Count - 1 == block)
+                    TrimZeros();
             }
         }
 
-        public override string ToString() => new string(blocks.Select(block => alpha[block]).ToArray()).TrimEnd('A');
+        public override string ToString() => new string(blocks.Select(block => alpha[block]).ToArray());
+
+        private void TrimZeros()
+        {
+            int i;
+            for (i = blocks.Count - 1; i >= 0; i--)
+                if (blocks[i] != 0)
+                    break;
+            var clear = blocks.Count - (++i);
+            if (clear > 0)
+                blocks.RemoveRange(i, clear);
+        }
     }
 }
