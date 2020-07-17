@@ -20,6 +20,8 @@ namespace BigBitMask.NET
 
         private readonly IList<byte> blocks;
 
+        public int BitsCapacity => blocks.Count * 6;
+
         public BitMask()
         {
             blocks = new List<byte>();
