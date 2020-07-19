@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.11</Version>
+    <Version>1.0.12</Version>
     <Description>Bitmask compatible with JavaScript big-bit-mask - the bitmask serializable into a base64-like, url-safe string.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Aleksej Solomatin</Authors>
