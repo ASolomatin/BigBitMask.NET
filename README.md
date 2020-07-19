@@ -34,9 +34,10 @@ This library implements a .NET, fully compatible, version of [big-bit-mask](http
 | Platform | Repository | Package |
 |-|-|-|
 | JavaScript / TypeScript | [big-bit-mask](https://github.com/ASolomatin/big-bit-mask) | [NPM](https://www.npmjs.com/package/big-bit-mask) |
+| PHP | [php-big-bit-mask](https://github.com/ASolomatin/php-big-bit-mask) | [Packagist](https://packagist.org/packages/asolomatin/php-big-bit-mask) |
 
 ## Install
-```
+```sh
 > dotnet add package BigBitMask.NET
 ```
 
